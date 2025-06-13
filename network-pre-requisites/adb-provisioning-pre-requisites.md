@@ -13,7 +13,7 @@ This lab walks you through the prerequisites to get started with Oracle Database
 
 Before getting started with Oracle Database@AWS, ensure you have an active AWS account and have created the required user roles. Once set up, you can subscribe to Oracle Database@AWS through the AWS Marketplace by accepting a private offer from Oracle.
 
-You can find more information about onboarding [here] (https://docs.aws.amazon.com/odb/latest/UserGuide/setting-up.html).
+You can find more information about onboarding [here](https://docs.aws.amazon.com/odb/latest/UserGuide/setting-up.html).
 
 ## Architecture
 
