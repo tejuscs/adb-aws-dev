@@ -70,6 +70,77 @@ Estimated Time: 30 minutes
     ![This image shows the result of performing the above step.](./images/avmc_home1.png " ")
 
 
+## Task 1: Manage Autonomous VM Cluster
+
+- AVMC is managed from the OCI Console. With the tight integration between OCI and AWS, a direct link is available from the AWS Management Console. Click 'Manage in OCI' in your Autonomous VM Cluster details page.
+
+    ![This image shows the result of performing the above step.](./images/manage_avmc.png " ")
+
+- You’ll be redirected to the OCI Console, where you’ll need your OCI credentials to sign in to the tenancy.
+
+    ![This image shows the result of performing the above step.](./images/oci_login.png " ")
+
+- Once logged in, click on 'Menu', 'Oracle Database' and 'Autonomous Database on Dedicated Infrastructure'.
+
+    ![This image shows the result of performing the above step.](./images/oci1.png " ")
+
+- Expand the Menu and clic on 'Autonomous Exadata VM Cluster'.
+
+    ![This image shows the result of performing the above step.](./images/oci2.png " ")
+
+- Autonomous Exadata VM clusters details page lists all the available AVMCs in your Tenancy.
+
+    ![This image shows the result of performing the above step.](./images/oci3.png " ")
+
+- Make sure to select the correct 'Compartment' to view your AVMC provisioned in AWS.
+
+    ![This image shows the result of performing the above step.](./images/compartment.png " ")
+
+- Click on your AVMC to view the details of the resource. 
+
+    ![This image shows the result of performing the above step.](./images/oci4.png " ")
+
+- To Scale AVMC, click on 'Actions' and select 'Scale Autonomous VM Cluster'.
+
+    ![This image shows the result of performing the above step.](./images/scaleavmc.png " ")
+
+- This allows you to Scale up or Scale down, based on your requirement. Change the values for ECPU count per VM, Number of ACDs that can be provisioned within the AVMC, and Database Storage and click on Save. 
+
+    ![This image shows the result of performing the above step.](./images/scaleavmc2.png " ")
+    
+- Manage certificate allows you to rotate the SSL security certificates for Oracle REST Data Services (ORDS) and Oracle Autonomous Database listener. Choose the security certificate type that you want to manage:
+
+    Database SSL certificate: Choose this option to manage SSL certificate for Database client connections.
+
+    ORDS SSL certificate: Choose this option to manage ORDS SSL certificate for Application Express (APEX) applications 
+
+    For more information can be found [here](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbcj/index.html#GUID-BEDC90F5-702C-4DE6-9300-343F646BE41E) on Managing certificates.
+
+    ![This image shows the result of performing the above step.](./images/managecert.png " ")
+
+- Click on 'Maintenance' to Manage AVMC quarterly maintenance. Oracle schedules and performs all patching and other maintenance operations on all the infrastructure resources of an Autonomous Database. At the same time, it also provides you with various options to customize, view, and reschedule maintenance events for the different resources.
+
+    ![This image shows the result of performing the above step.](./images/managemaintenance.png " ")
+
+- To Edit a scheduled maintenance, click on Edit and choose a suitable date and time. 
+
+    ![This image shows the result of performing the above step.](./images/edit.png " ")
+
+- To view 'Resource allocation', click on 'View details' under General information. 
+
+    ![This image shows the result of performing the above step.](./images/viewdetails.png " ")
+
+- The resource allocation details provide a comprehensive overview of CPU usage in the AVMC, per-VM CPU usage, ACD utilization, and storage consumption.
+
+    ![This image shows the result of performing the above step.](./images/cpuusage.png " ")
+
+    ![This image shows the result of performing the above step.](./images/cpu1.png " ")
+
+    ![This image shows the result of performing the above step.](./images/acdusage.png " ")
+
+    ![This image shows the result of performing the above step.](./images/storageusage.png " ")
+
+
 
 You may now **proceed to the next lab** to provision Autonomous Container Database.
 
