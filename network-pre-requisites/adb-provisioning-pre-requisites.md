@@ -1,131 +1,108 @@
 
-# Get started - Autonomous Database
+# Get started - ODB networks
 
 ## Introduction
 
-This lab walks you through the prerequisites to get started with Oracle Database@Azure - Autonomous Database. This involves creating a Resource Group, VNet, and a subnet that needs to be delegated to Oracle.Database/networkAttachement.
+Oracle Database@AWS is a cloud service that enables you to run Oracle Database workloads within your AWS environment, while leveraging Oracle Cloud Infrastructure (OCI) for management and control.
+
+When using this solution, resources are deployed across two cloud platforms: the database itself runs in AWS, while the administrative control plane remains in OCI. This setup allows you to operate Oracle databases directly in AWS while benefiting from OCI’s robust management capabilities.
+
+This lab walks you through the prerequisites to get started with Oracle Database@AWS - Autonomous Database. This involves creating a ODB network, ODB peering connections with VPC.
+
+## Onboarding to Oracle Database@AWS
+
+Before getting started with Oracle Database@AWS, ensure you have an active AWS account and have created the required user roles. Once set up, you can subscribe to Oracle Database@AWS through the AWS Marketplace by accepting a private offer from Oracle.
+
+You can find more information about onboarding [here] (https://docs.aws.amazon.com/odb/latest/UserGuide/setting-up.html).
+
+## Architecture
+
+Oracle Database@AWS brings Oracle Database functionality to AWS Availability Zones as a native service. The architecture diagram below illustrates the core topology, with application resources deployed in a VPC within an AWS region.
+
+![](./images/architecture.png " ")
+
+Oracle Exadata Database Service runs within an OCI-managed child site inside the ODB network, which is dedicated to Oracle Database@AWS. Customer applications hosted in an AWS application VPC connect to Oracle Database@AWS using the supported database connection methods.
 
 
-Estimated Time: 20 minutes
+Estimated Time: 15 minutes
 
 ### Objectives
 
-As a database user, DBA, or application developer:
+As a database user, network architect, or application developer:
 
-1. Create a Resource Group and Virtual Network in the Azure portal.
+1. Create an ODB network and peer with VPC in AWS portal.
 
-## Task 1: Create a Resource Group
+## Task 1: Create an ODB network
 
-In this section, you will create a resource group and VNet.
 
-1.  Login to Azure Portal (portal.azure.com) and navigate to All services. Then click on the **Resource groups** icon.
+1.  Login to AWS Portal (portal.aws.amazom.com) and navigate to All services. Then click on the **Oracle Database@AWS**.
 
-    ![](./images/resource_group_image1.png " ")
+    ![](./images/oracle_database_aws.png " ")
 
-2.	On the ‘Resource groups’ page, click on the ‘Create’ button.
+    The dashboard provides a summary view of the resources in your tenancy, including ODB networks, Exadata infrastructures, Exadata VM clusters, Autonomous VM clusters, and ODB peering connections.
 
-    ![](./images/resource_group_image2.png " ")
-
-3.	On “Create resource groups’ provide details in each tab as mentioned below. 
-    Basics:
-    a.  Subscription – select your billing subscription in the directory you selected
-    b.  Resource group – Enter the name for the resource group to be created
-    c.  Region – Select your region from the drop-down list
+    ![](./images/oracle_database_aws_dashboard.png " ")
     
 
-    ![](./images/resource_group_image3.png " ")
+2.	On the Oracle Database@AWS’ dashboard page, click on the ‘ODB networks’.
 
-    Tags
-    Provide input to organize your resource with tagging as shown below
-    a.	Name
-    b.	Value
+    ![](./images/odb_networks.png " ")
+
+3.	You can view existing ODB networks and also create a new ODB network directly from the details page. Click on 'Create ODB network'.
+
+    ![](./images/odb_networks_details.png " ")
     
-    ![](./images/resource_group_image4.png " ")
+
+4.	  Enter your 'ODB network name', select 'Availability Zone', enter the IP address range for the 'client network', and optionally enter the IP address range for the 'backup network'.
+
+        ![](./images/create_odb_network1.png " ")
 
 
-    The ‘Review + create’ page will validate the input provided in the previous steps. Once Validation is passed, it will create a resource group.
+When selecting a network topology, consider the following Oracle Exadata Database Service VM cluster networking:
+    - Locate Application VPCs in the same Availability Zone as the ODB network and Exadata infrastructure hosting the VM cluster or Autonomous VM Cluster.
+    - Carve out two non-overlapping CIDR ranges.
+    - Define one CIDR range for the 'Client subnet' with a minimum /27. Oracle recommends that you use /24 for the Client subnet CIDR to accommodate future expansion.
+    - Define one CIDR for the 'Backup subnet' with a minimum of /28.
+    - IPs are automatically assigned to Autonomous VM clusters from the CIDR range in the Client subnet.
 
-    ![](./images/resource_group_image5.png " ")
+5.   Oracle Database@AWS automatically configures DNS for the ODB network using the preconfigured domain oraclevcn.com. Optionally, you can also specify a custom domain prefix during ODB network provisioning.
 
-4.	Navigate to ‘Resource groups’ from ‘Home’ screen and search for the Resource group created to validate  
+        ![](./images/dns_configuration.png " ")
 
-    ![](./images/resource_group_image6.png " ")
 
-## Task 2:  Create Virtual Network (VNet)
-1. Navigate to ‘Azure Services’ and select Virtual networks. Then click on the Create button
+6.   Optionally, you can configure network access for Amazon S3 (Database backups) and Zero-ETL and click on 'Create ODB network'.
 
-    ![](./images/vnet1.png " ")
+        ![](./images/service_integration.png " ")
 
-2.	Create Virtual Network page will appear. Provide all required details as shown below for each tab
-    
-    Project Details:
-    * **Subscription:**
-    * **Resource group**
-    
-    Instance Details
-    * **Virtual network name**
-    * **Region**
+7.   Once created, you can view your ODB network on the 'ODB networks' details page.
 
-    ![](./images/vnet2.png " ")
+        ![](./images/odb_network_created.png " ")
 
-     Security
-    * **Virtual Network encryption:** Select Virtual Network Encryption checkbox to enable the encryption of the traffic traveling within the VNet
 
-    * **Azure Bastian:** Select Enable Azure Bastian checkbox if Bastian Server is required to connect to specific resource later.
+## Task 2:  ODB peering connections
+1. From 'Oracle Database@AWS' dashboaed, clck on 'ODB peering connections'
 
-    * **Azure Firewall:** Similar to traffic encryption and Bastian service, you can enable the Azure Firewall if required.
+    ![](./images/odb_peering.png " ")
 
-    ![](./images/vnet3.png " ")
+2.	Click on 'Create ODB peering connection' to create a peer between ODB network and VPC. 
 
-    * **IP Addresses:** There is an option to choose IPV4/IPV6 addresses for your network resources. 
-    Select default IP Address range or provide new IP range based on your requirement. Here we are using default IP range for IP addresses as shown below.
+    ![](./images/odb_peering.png " ")
 
-    ![](./images/vnet4.png " ")
+3. Enter the 'ODB peering name', choose the 'ODB network' that contains you Autonomous VM Cluster, and finally choose the VPC 'Peer network' wher your applications exists.
 
-    Tags
-    
-    Provide input to organize your resource with tagging as shown below
-    * **Name**
-    * **Value**
+    ![](./images/create_odb_peering.png " ")
 
-    ![](./images/vnet5.png " ")
 
-    On the **Review + create** page, it will validate the input provided in previous steps. Once Validation is passed, it will create the virtual network.
+4. Optionally, Add Tags and click on 'Create ODB peering connection'.
 
-    ![](./images/vnet6.png " ")
+    ![](./images/create_odb_peering1.png " ")
 
-    Deployment can be monitored as below.
-
-    Once all required resources are created for virtual network, deployment status will get changed to **‘Complete’**.
-
-    ![](./images/vnet7.png " ")
-
-    Navigate to **Virtual Networks** and search for the name of the VNet created to see details about it.
-
-## Task 3: Add Subnet and Delegate to Oracle Database@Azure Service
-
-- Select the VNet created in Task 2 and click on ‘Add a subnet'.
-
-    ![](./images/subnet1.png " ")
-
-- Provide a name for the subnet and select an IP address range based on the size of network required for the deployment.
-
-    ![](./images/subnet2.png " ")
-
-- You need to delegate this subnet to **Oracle.Database/networkAttachments**. Under the **Subnet Delegation** option, select **Oracle.Database/networkAttachments** from the drop down list.
-
-    ![](./images/subnet3.png " ")
-
-- Click on Add button to add this subnet to the VNet.
-
-    ![](./images/subnet4.png " ")
-
-You may now **proceed to the next lab** to provision Autonomous Database.
+You may now **proceed to the next lab** to provision Exadata infrastructure.
 
 ## Acknowledgements
 
-*All Done! You have successfully created Resource Group and Virtual Network.*
+*All Done! You have successfully created ODB network and ODB peering connection.*
 
-- **Author** - Sanjay Rahane, Principal Cloud Architect, North America Cloud Engineering Services (CES)
+- **Author** - Tejus Subrahmanya, Principal Product Manager, Autonomous Database 
 
-- **Last Updated By/Date** - Sanjay Rahane, July 2024
+- **Last Updated By/Date** - Tejus Subrahmanya, June 2025
