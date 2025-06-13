@@ -1,5 +1,5 @@
 
-# Create Autonomous VM Cluster
+# Create and Manage Autonomous VM Cluster
 
 ## Introduction
 
@@ -10,7 +10,7 @@ The AVMC is one of the infrastructure components of the four-level database arch
 AVMCs provide isolated environments for different database workloads through separate access rules, network configurations, as well as customizable compute memory, and storage resources.
 
 
-In this lab, you will learn how to Create Autonomous VM Cluster.
+In this lab, you will learn how to Create and Manage Autonomous VM Cluster.
 
 
 Estimated Time: 30 minutes
@@ -21,8 +21,8 @@ Estimated Time: 30 minutes
 
 ### Required Artifacts
 
-- Existence of an Oracle Exadata Infrastructure
-- ODB Network
+- Pre-provsioned Oracle Exadata Infrastructure
+- Pre-provsioned ODB Network
 
 ## Task 1: Create Autonomous VM Cluster
 

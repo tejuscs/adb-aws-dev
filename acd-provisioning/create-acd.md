@@ -1,119 +1,133 @@
-# Connecting Power BI Desktop to an Oracle Autonomous Database in Oracle Database@Azure 
+# Create and Manage Autonomous Container Database
 
 ## Introduction
-Power BI Desktop is a free application you install on your Windows machines that lets you connect to, transform, and visualize your data. With Power BI Desktop, you can connect to multiple sources of data to build visuals and collections of visuals you can share as reports.
+Autonomous Container Database (ACD) is one of the four components of the four-level database architecture model, which is the foundation for an Autonomous Database on Dedicated Exadata Infrastructure. ACDs are provisioned inside an Autonomous Exadata VM Cluster (AVMC) and serve as containers for one or more Autonomous Databases.
 
-Oracle Database@Azure is an Oracle and Microsoft partnership solution that delivers Oracle database services running on Oracle Cloud Infrastructure (OCI), collocated in Microsoft Azure data centers. Azure customers can now procure, deploy, and use Oracle database services running on OCI within the native Azure portal and APIs, giving them an OCI-in-Azure-like experience. 
+You can create multiple ACD resources in a single AVMC resource, but you must create at least one before you can create any Autonomous Databases. Click [here](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbaa/index.html#GUID-268B36E1-87D8-4649-A370-226E2AE3FC5C) to gain a comprehensive understanding of the four-layer architecture used with the an Autonomous Database on Dedicated Exadata Infrastructure and to understand the positioning of ACD within this architecture.
 
-This lab allows you to connect Power BI Desktop to an Oracle Database in Oracle Database@Azure to visualize data and generate reports.
+In this lab, you will learn how to Create and Manage Autonomous VM Cluster.
 
-Estimated Time: 10-15 minutes
+Estimated Time: 30 minutes
 
-Watch the video below for a quick walk-through of the lab.
-[Simplifying @ Azure](videohub:1_ehgzfts4)
 
 ### Objectives
 
-1. Use Microsoft Power BI Desktop to retrieve data from an Autonomous Database in Oracle Database@Azure.
-2. Configure Power BI to query an Autonomous database schema.
-3. Generate a Power BI Desktop report.
+1. Create Autonomous Container Databases
+2. Manage Autonomous Container Databases
 
 ### Prerequisites
-- Access to Oracle Database@Azure via an active Azure subscription and an OCI tenancy
-- A pre-provisioned Autonomous Database with admin access.
-- A pre-provisioned Azure Windows virtual machine with network access to the database.
+- A pre-provsioned ODB Network
+ A pre-provsioned Oracle Exadata Infrastructure
+- A pre-provsioned Autonomous VM Cluster
 
 
+## Task 1: Create Autonomous Container Database
 
-## Task 1: Verify that Power BI Desktop is installed in your Virtual Machine
+- Autonomous Container Database creation is managed from the OCI Console. From your AVMC details page in AWS, click “Manage in OCI” and log in to your OCI tenancy.
 
-- Open Power BI
+  ![Manage in OCI](./images/manageinoci.png " ")
 
-- Click File -> About
+- Click on Oracle Database from the OCI Menu, and select Autonomous Database on Dedicated infrastructure.
 
-- Verify it is the 64-bit version
+  ![This image shows the result of performing the above step.](./images/adb.png " ")
 
-  ![About Power BI Desktop](./images/powerbiversion.png " ")
+  - Expand the Menu and select Autonomous Contanier Database.
+
+  ![This image shows the result of performing the above step.](./images/acd.png " ")
+
+  - ACD Details page lists all the avialable Autonomous Container Databases in the selected Compartment.
+
+  ![This image shows the result of performing the above step.](./images/acdhome.png " ")
+
+  - To Create an ACD, Click on Create Autonomous Container Database. Enter a Display Name, Select a Compartment, enter ACD name, and choose the Exadata infrastructure and AVMC you want the ACD to be in. 
+
+  ![This image shows the result of performing the above step.](./images/createacd.png " ")
+
+- In the Basic Information, select the Oracle Database version from a Base image or Custom image you have created. Learn more about Base images and Customer image [here](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbaz/).
+
+  ![This image shows the result of performing the above step.](./images/basicinfo.png " ")
 
 
-## Task 2: Verify that the Oracle Client for Microsoft Tools is installed
+- Automatic maintenance configuration allows you to configure Maintenance method, ACD maintenance version, and Maintenance schedule.
 
-Ensure that the Oracle Client for Microsoft Tools is installed on the virtual machine you are using for this lab
+  ![This image shows the result of performing the above step.](./images/maintenance.png " ")
 
-- Verify that the following directory with its subfolder and files exist
+- Click on Modify maintenance schedule to Edit automatic maintenance. Click [here](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/uzzru/index.html) to learn more Maintenance Preferences and best practices.
 
-![Get Data](./images/oracleclient.png " ")
+  ![This image shows the result of performing the above step.](./images/updatemaintenance.png " ")
 
+- In the Configure database backups section, configure database backups by specifying the settings for backing up the database.
 
-## Task 3: Set up a connection to an Autonomous database
+  Enable automatic backup: Select to enable automatic backups for this database.
 
-  - Copy the downloaded Autonomous Database credentials zip file into a directory.
+  ![This image shows the result of performing the above step.](./images/backup.png " ")
 
-    ```
-    <copy>
-    C:\DATA\Wallet\
-    </copy>
-    ```
+- Enter Customer Contact to recieve notifications and announcements.
+
+  ![This image shows the result of performing the above step.](./images/contacts.png " ")
+
+- Advanced options: Autonomous Database resource management 
   
-     ![Get Data](./images/wallet1.png " ")
-
-  - Unzip the wallet in the same directory.
-
-     ![Get Data](./images/wallet2.png " ")
+    Resource management attributes affect how resources are managed to either consolidate more databases or have the highest database availability.
     
-  - Open the sqlnet.ora configuration file in the credentials directory in a text editor and set the DIRECTORY value to the ADB wallet directory location, such as:
-
-    ```
-    <copy>
-      WALLET_LOCATION = (SOURCE = (METHOD = file) (METHOD_DATA = (DIRECTORY=C:\DATA\WALLET))) 
-    </copy>
-    ```
-
-     ![Get Data](./images/wallet3.png " ")
-
+    Database split threshold (CPU): The CPU value beyond which an Autonomous Database will be opened across multiple nodes.
     
-  - Open Power BI Desktop
-
-  - Click **Get Data** and select **More** at the bottom of the list
-
-  ![Get Data](./images/getdatamore.png " ")
-
-  - Select **Database** on the left side menu
-
-  - Select **Oracle database** from the list
-
-  ![Select Oracle Database](./images/databaseoracle.png " ")
-
-  - Enter the **Server** in the following format:
-
-    ```
-    ADB_low
-    ```
-
-  ![Select Oracle Database](./images/adb1.png " ")
-
-  - Check the **DirectQuery** radio button
+    Node failover reservation (%): Determines the percentage of CPUs reserved across nodes to support node failover.
     
-  - Click **OK**
+    Distribution affinity: Determines whether an Autonomous Database must be opened across a minimum or maximum of nodes.
 
-  - Power BI will request you to enter the database credentials. Select ***Database*** on the left side of the window and enter ***Admin*** and password and click Connect.
+  ![This image shows the result of performing the above step.](./images/resourcemanagement.png " ")
 
-  ![Enter Credentials](./images/adb2.png " ")
+- Advanced options: Net services architecture
 
-  - Power BI should now connect to ADB. In the navigator window, select the schema objects needed and load the data. 
+    Optionally, you can enable Shared Server architecture whch enables a database server to allow many client processes to share very few server processes. 
 
-    ![Enter Credentials](./images/adb3.png " ")
+  ![This image shows the result of performing the above step.](./images/sharedserver.png " ")
 
-## References
+- Advanced options: Encryption key
 
-    * https://www.oracle.com/a/ocom/docs/database/microsoft-powerbi-connection-adw.pdf
-    * https://learn.microsoft.com/en-us/power-bi/connect-data/desktop-connect-oracle-database
+    In the Encryption section, to manage your database keys select Encrypt using an Oracle-managed key or Encrypt using a customer-managed key in this tenancy.  For more information about the options to manage your database keys, see [Master Encryption Keys in Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbcz/index.html#articletitle)
 
-You may now **proceed to the next lab**.
+  ![This image shows the result of performing the above step.](./images/keys.png " ")
+
+- Optionally, you can add Tags to the ACD. 
+
+  ![This image shows the result of performing the above step.](./images/tags.png " ")
+
+
+## Task 2: Manage Autonomous Container Database
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You may now **proceed to the next lab** to provision Autonomous Container Database.
 
 ## Acknowledgements
 
-*Fantastic! You successfully learned to connect Autonomous Database to Power BI.*
+*All Done! You have successfully created ODB network and ODB peering connection.*
 
-- **Author** - Anwar Belayachi
-- **Last Updated By/Date** - Tejus Subrahmanya / August 20, 2024
+- **Author** - Tejus Subrahmanya, Principal Product Manager, Autonomous Database 
+
+- **Last Updated By/Date** - Tejus Subrahmanya, June 2025
