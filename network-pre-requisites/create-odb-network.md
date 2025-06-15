@@ -77,7 +77,7 @@ As a database user, network architect, or application developer:
 
 
 ## Task 2:  ODB peering connections
-- From 'Oracle Database@AWS' dashboaed, clck on 'ODB peering connections'
+- From 'Oracle Database@AWS' dashboaed, clck on 'ODB peering connections'.
 
     ![This image shows the result of performing the above step.](./images/odb_peering.png " ")
 

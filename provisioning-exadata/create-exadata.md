@@ -63,7 +63,7 @@ You may now **proceed to the next lab** to provision Autonomous VM Cluster.
 
 ## Acknowledgements
 
-*All Done! You have successfully created ODB network and ODB peering connection.*
+*All Done! You have successfully created Exadata infrastructure.*
 
 - **Author** - Tejus Subrahmanya, Principal Product Manager, Autonomous Database 
 

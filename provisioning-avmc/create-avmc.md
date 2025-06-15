@@ -28,7 +28,6 @@ Estimated Time: 30 minutes
 
 1.	From the Oracle Database@AWS dashboard, select the Autonomous VM Clusters link.
 
-
     ![This image shows the result of performing the above step.](./images/avmc.png " ")
 
 -  Autonomous VM clusters details page lists all provisioned AVMCs in your Tenancy.
@@ -146,7 +145,7 @@ You may now **proceed to the next lab** to provision Autonomous Container Databa
 
 ## Acknowledgements
 
-*All Done! You have successfully created ODB network and ODB peering connection.*
+*All Done! You have successfully created Autonomous VM Cluster.*
 
 - **Author** - Tejus Subrahmanya, Principal Product Manager, Autonomous Database 
 
