@@ -1,141 +1,119 @@
 
-# Provisioning Autonomous Database
+# Create and Manage Autonomous Database
 
 ## Introduction
 
-This lab walks you through the steps to provision Autonomous Database. 
+An Autonomous Database (ADB) resource is a user database. You can create many Autonomous Databases in a single Autonomous Container Database resource. For an overview of Autonomous Databases, their features, and how to use them, see [About Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/aadvv/index.html).
 
-Estimated Time: 10 minutes
+This lab walks you through the steps to provision and manage Autonomous Database. 
 
-Watch the video below for a quick walk-through of the lab.
-[Provision ADB@Azure](videohub:1_2qkjv6o5)
+Estimated Time: 30 minutes
+
 
 ### Objectives
 
 As a database user, DBA or application developer:
 
-1. Rapidly deploy an Autonomous Transaction Processing databases.
+1. Rapidly deploy an Autonomous databases.
 
 ### Required Artifacts
 
-- An Azure account with a pre-configured Resource Group and a Virtual Network.
+- A pre-provsioned ODB Network
+- A pre-provsioned Oracle Exadata Infrastructure
+- A pre-provsioned Autonomous VM Cluster
+- A pre-provisioned Autonomous Container Database
 
 ## Task 1: Create Autonomous Database
 
 In this section, you will be provisioning an Autonomous database using the Azure portal.
 
-1.	Login to Azure Portal (portal.azure.com) and navigate to All services. Then click on Oracle Database@Azure.
+1.	- Autonomous Database creation is managed from the OCI Console. From your AVMC details page in AWS, click “Manage in OCI” and log in to your OCI tenancy.
 
-    NOTE: Please click skip if you are asked to enable multi-factor authorization.
+  ![Manage in OCI](./images/manageinoci.png " ")
 
-    ![This image shows the result of performing the above step.](./images/oracledb.png " ")
+- Click on Oracle Database from the OCI Menu, and select Autonomous Database on Dedicated infrastructure.
 
--  Click **Oracle Autonomous Database Service** from the menu.
+  ![This image shows the result of performing the above step.](./images/adbd.png " ")
 
-    ![This image shows the result of performing the above step.](./images/adb.png " ")
+- Expand the Menu and select Autonomous Database.
 
-- Click **Create** in Oracle Autonomous Database Service details page.
+  ![This image shows the result of performing the above step.](./images/adb.png " ")
 
-    ![This image shows the result of performing the above step.](./images/createadb.png " ")
+- ADB Details page lists all the avialable Autonomous Databases in the selected Compartment.
 
+  ![This image shows the result of performing the above step.](./images/adb1.png " ")
 
--  This will bring up the **Create Oracle Autonomous Database** screen where you specify the configuration of the instance.
+- Click Create Autonomous Database to provision a new ADB. Enter a Display Name, Database name, Select a Compartment,and the Workload type. You can configure your database in two different modes based on the workload type, as: Autonomous Data Warehouse and Autonomous Transaction Processing. Click [here](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbaa/index.html#articletitle) to learn more about Workload types supported in Autonomoud Database.
 
-- Select the **Subscription**, **Resource Group**, and enter Instance **Name** and pick the **Region** then click Next.
+  ![This image shows the result of performing the above step.](./images/createadb.png " ")
 
-    ![This image shows the result of performing the above step.](./images/basics.png " ")
+- Select the Autonomous Container Database (ACD) in which you want to provision ADB. You can also filter Autonomous Data Guard-enabled ACDs. 
 
-For this lab, we will be using the following Subscription: **omcpmhol1**, Resource Group: **ocw24-hol-resource-group-east-us**, and Region: **East US**.
+  ![This image shows the result of performing the above step.](./images/createadb1.png " ")
 
--  Enter the details in the **Configuration** page.
-
-    *NOTE: Autonomous Database supports different workload types, including: Data Warehouse and Transaction Processing. Both of these workload types provide performance improvements and additional features that support operations for the specified workload. [Learn More](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/about-autonomous-database-workloads.html#GUID-E1C8C5F2-22FB-4225-A3B9-9E78277A5834)*
-
--  Select **Transaction Processing** under the **Workload type** dropdown.
+- Under the Database configuration, enter the number of CPUs and amount of Storage you require for the database. 
     
-    ![This image shows the result of performing the above step.](./images/transaction.png " ")
+    Autonomous Database for Developers instances are free Autonomous Databases that developers can use to build and test new applications.
+    With Autonomous Database for Developers instances, you can try new Autonomous Database features for free and apply them to ongoing or new development projects. Developer database comes with limited resources and is, therefore, not suitable for large-scale testing and production deployments. When you need more compute or storage resources, you can transition to a paid database licensing by cloning your developer database into a regular Autonomous Database. Learn more about [Autonomous Database for Developers](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/eddjo/).
 
-- Under **Database configuration**, enter the following details:
-    ```
-     Database Version: 19c
-     ECPU count: 2
-     Compute auto scaling: Disabled
-     Storage: 1024 GB
-     Storage auto scaling: Disabled
-    ```
-    ![This image shows the result of performing the above step.](./images/config.png " ")
+    Auto scaling enables a database to use up to three times more CPU and IO resources than its specified CPU count. When auto scaling is enabled, if your workload requires additional CPU and IO resources the database automatically uses the resources without any manual intervention required. Learn more about [Enable or Disable Auto Scaling](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adban/index.html).
 
+    ![This image shows the result of performing the above step.](./images/createabd2.png " ")
 
--  Under **Backup retention** select the Backup retention period in days.
+- Optionally, you can also Enable Elatic Pool for the ADB. 
+   
+    Use an elastic pool to consolidate your Autonomous Database instances, in terms of their allocation of compute resources, and to provide up to 87% cost savings. 
+    Elastic pools help you improve operating efficiency and reduce costs by bringing all of your databases to the Cloud. This also supports consolidating resources and simplifying administration and operations by using Autonomous Database. When you need a large number of databases, that can scale up and down elastically without downtime, you can benefit by creating and using elastic pools. Learn more about [Elastic Pools](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/catiu/index.html#articletitle).
+
+  ![This image shows the result of performing the above step.](./images/createadb3.png " ")
+
+- Enter the Administrator credentials. Username for all Autonomous database will be ADMIN. Specify the password for the instance. 
+
+  ![This image shows the result of performing the above step.](./images/createadb4.png " ")
+
+- You can Configure Database-level network access by clicking Modify Access Control button.
+
+    ![This image shows the result of performing the above step.](./images/createadb5.png " ")
+
+    ![This image shows the result of performing the above step.](./images/createadb6.png " ")
+
+- Enter customer contact information to receive operational notifications and announcements.
     
-    *For this lab, we will select 1 day as the Backup retention period.*
+    ![This image shows the result of performing the above step.](./images/createadb7.png " ")
 
-    ![This image shows the result of performing the above step.](./images/backup.png " ")
+- Click on Advanced Options to view Encryption Key used, select Character set and National character set, to Enable Database In-Memory and add Tags.
 
--  Under **Administrator credentials** enter the Admin password.
+    ![This image shows the result of performing the above step.](./images/createadb8.png " ")
 
-    *For this lab, we will be using the following as a password.*
+- Click Create Autonomous Database to start provisioning the instance.
 
-    ```
-    <copy>
-    WElcome_123#
-    </copy>
-    ```
+    ![This image shows the result of performing the above step.](./images/createadb9.png " ")
 
-- Select the  **License type** as **License included**.
+- Your autonomous database instance should be up and running in a few minutes.
 
-    ![This image shows the result of performing the above step.](./images/license.png " ")
+- Once provisioned, you can click on the instance name to see instance details.
 
--  Click **Advanced options** to view or change **Character set** and **National character set** and click **Next**.
-
-    *For this lab, we will use the default settings.*
-
-    ![This image shows the result of performing the above step.](./images/char.png " ")
+    ![This image shows the result of performing the above step.](./images/createad10.png " ")
 
 
-- Enter the **Networking** configurations.
+## Task 2: Manage Autonomous Database
 
-- Select the following under **Network access**
-    
-    *Note: TLS connections allow you to connect to your Autonomous Database without a wallet, if you use a JDBC thin driver with JDK8 or above. TLS connections require you to use an access control list (ACL) or private endpoint.*
-
-- For the lab, we select the following and click Next. 
-
-    ```
-    Access type: Managed private virtual network IP only
-    
-    Required mutual TLS (mTLS) authentication: Disabled
-    
-    Virtual network: ocw24-hol-vnet
-    
-    Subnet: ocw24-hol-delegated-subnet
-    ```
-
-    ![This image shows the result of performing the above step.](./images/network.png " ")
-    
-
-- Under **Maintenance**, select the **Maintenance patch level** and enter **Maintenance contact emails**, then click Next.
-    
-    ![This image shows the result of performing the above step.](./images/maintenance.png " ")
-
-- Agree to the terms of services and click Next.
-
-    ![This image shows the result of performing the above step.](./images/agree.png " ")
-
-- Add Tags if required and click Next.
-
-    ![This image shows the result of performing the above step.](./images/tags.png " ")
-
-- Review the configurations and click Create.
-
-    ![This image shows the result of performing the above step.](./images/review.png " ")
+- 
 
 
-You may now **proceed to the next lab**.
+
+
+
+
+
+
+
+
 
 ## Acknowledgements
 
-*All Done! You have successfully deployed your Autonomous Database instance and it should be available for use in a few minutes.*
+*All Done! You have successfully created Autonomous Database.*
 
-- **Author** - Tejus Subrahmanya
-- **Last Updated By/Date** - Tejus Subrahmanya, July 2024
+- **Author** - Tejus Subrahmanya, Principal Product Manager, Autonomous Database 
+
+- **Last Updated By/Date** - Tejus Subrahmanya, June 2025

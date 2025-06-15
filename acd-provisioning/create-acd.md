@@ -17,7 +17,7 @@ Estimated Time: 30 minutes
 
 ### Prerequisites
 - A pre-provsioned ODB Network
- A pre-provsioned Oracle Exadata Infrastructure
+- A pre-provsioned Oracle Exadata Infrastructure
 - A pre-provsioned Autonomous VM Cluster
 
 
