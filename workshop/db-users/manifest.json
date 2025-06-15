@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "Introduction to Oracle Database@Azure - Autonomous Database",
+    "workshoptitle": "Introduction to Oracle Database@AWS - Autonomous Database",
     "help": "livelabs-help-db_us@oracle.com",
     "tutorials": [
                 {
@@ -8,60 +8,44 @@
             "filename": "./intro.md"
         },
         {
-            "title": "Get Started",
+            "title": "Lab 1: Provisioning ODB Network",
             "description": "Pre-requisites to provision Autonomous Databases",
             "partnumber": "Ennnnn_01",
             "publisheddate": "07/25/2024",
             "contentid": "12nnnn",
-            "filename": "./../../adb-provisioning-pre-requisites/adb-provisioning-pre-requisites.md"
+            "filename": "./../../network-pre-requisites/create-odb-network.md"
         },
         {
-            "title": "Lab 1: Provisioning Autonomous Database",
-            "description": "Provisioning Autonomous database",
+            "title": "Lab 2: Provisioning Exadata infrastructure",
+            "description": "Provisioning Exadata infrastructure",
             "partnumber": "Ennnnn_01",
             "publisheddate": "07/25/2024",
             "contentid": "12nnnn",
-            "filename": "./../../adb-provisioning-databases/adb-provisioning-databases.md"
+            "filename": "./../../provisioning-exadata/create-exadata.md"
         },
         {
-            "title": "Lab 2: Connect Securely with Visual Studio",
-            "description": "Connect Autonomous Database with Visual Studio",
+            "title": "Lab 3: Provisioning Autonomous VM Cluster",
+            "description": "Provisioning Autonomous VL Cluster",
             "partnumber": "Ennnnn_01",
             "publisheddate": "07/25/2024",
             "contentid": "12nnnn",
-            "filename": "./../../adb-connect-with-vs/adb-connect-with-vs.md"
+            "filename": "./../../provisioning-avmc/create-avmc.md"
         },
         {
-            "title": "Lab 3: Migrate to ADB using Data Pump",
-            "description": "Migrate to Autonomous Database using Data Pump",
+            "title": "Lab 4: Provisioning Autonomous Container Database",
+            "description": "Provisioning Autonomous Container Database",
             "partnumber": "Ennnnn_01",
             "publisheddate": "07/25/2024",
             "contentid": "12nnnn",
-            "filename": "./../../migrate-to-adb/migrate-to-adb.md"
+            "filename": "./../../provisioning-acd/create-acd.md"
         },
         {
-            "title": "Lab 4: Connect ADB with Swingbench application",
-            "description": "Connect Swingbench application with Autonomous Database",
+            "title": "Lab 5: Provisioning Autonomous Database",
+            "description": "Provisioning Autonomous Database",
             "partnumber": "Ennnnn_01",
             "publisheddate": "07/25/2024",
             "contentid": "12nnnn",
-            "filename": "./../../connect-to-swingbech-app/connect-to-swingbech-app.md"
-        },
-        {
-            "title": "Lab 5: Connect PowerBI with ADB",
-            "description": "Connect PowerBI with Autonomous Database",
-            "partnumber": "Ennnnn_01",
-            "publisheddate": "07/25/2024",
-            "contentid": "12nnnn",
-            "filename": "./../../connect-to-powerbi/connect-to-powerbi.md"
-        },
-        {
-            "title": "Lab 6: Chat with your data in ADB using Generative AI",
-            "description": "Chat with your data in ADB using Generative AI",
-            "partnumber": "Ennnnn_01",
-            "publisheddate": "07/25/2024",
-            "contentid": "12nnnn",
-            "filename": "./../../chat-with-your-data-using-genai/chat-with-your-data-using-genai.md"
+            "filename": "./../../provisioning-adb/create-adb.md"
         },
         {
             "title": "Need Help?",
