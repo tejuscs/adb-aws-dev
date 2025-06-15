@@ -17,9 +17,10 @@ You can find more information about onboarding [here](https://docs.aws.amazon.co
 
 ## Architecture
 
-Oracle Database@AWS brings Oracle Database functionality to AWS Availability Zones as a native service. The architecture diagram below illustrates the core topology, with application resources deployed in a VPC within an AWS region.
+- Oracle Database@AWS brings Oracle Database functionality to AWS Availability Zones as a native service. The architecture diagram below illustrates the core topology, with application resources deployed in a VPC within an AWS region.
 
-![](./images/architecture.png " ")
+    ![This image shows the result of performing the above step.](./images/architecture.png " ")
+
 
 Oracle Exadata Database Service runs within an OCI-managed child site inside the ODB network, which is dedicated to Oracle Database@AWS. Customer applications hosted in an AWS application VPC connect to Oracle Database@AWS using the supported database connection methods.
 
@@ -35,67 +36,63 @@ As a database user, network architect, or application developer:
 ## Task 1: Create an ODB network
 
 
-1.  Login to AWS Portal (portal.aws.amazom.com) and navigate to All services. Then click on the **Oracle Database@AWS**.
+- Login to AWS Portal (portal.aws.amazom.com) and navigate to All services. Then click on the **Oracle Database@AWS**.
 
-    ![](./images/oracle_database_aws.png " ")
+    ![This image shows the result of performing the above step.](./images/oracle_database_aws.png " ")
 
-    The dashboard provides a summary view of the resources in your tenancy, including ODB networks, Exadata infrastructures, Exadata VM clusters, Autonomous VM clusters, and ODB peering connections.
+- The dashboard provides a summary view of the resources in your tenancy, including ODB networks, Exadata infrastructures, Exadata VM clusters, Autonomous VM clusters, and ODB peering connections.
 
-    ![](./images/oracle_database_aws_dashboard.png " ")
-    
+    ![This image shows the result of performing the above step.](./images/oracle_database_aws_dashboard.png " ")
 
-2.	On the Oracle Database@AWS’ dashboard page, click on the ‘ODB networks’.
+- On the Oracle Database@AWS’ dashboard page, click on the ‘ODB networks’.
 
-    ![](./images/odb_networks.png " ")
+    ![This image shows the result of performing the above step.](./images/odb_networks.png " ")
 
-3.	You can view existing ODB networks and also create a new ODB network directly from the details page. Click on 'Create ODB network'.
+- You can view existing ODB networks and also create a new ODB network directly from the details page. Click on 'Create ODB network'.
 
-    ![](./images/odb_networks_details.png " ")
-    
+    ![This image shows the result of performing the above step.](./images/odb_networks_details.png " ")
 
-4.	  Enter your 'ODB network name', select 'Availability Zone', enter the IP address range for the 'client network', and optionally enter the IP address range for the 'backup network'.
+- Enter your 'ODB network name', select 'Availability Zone', enter the IP address range for the 'client network', and optionally enter the IP address range for the 'backup network'.
 
-        ![](./images/create_odb_network1.png " ")
+    ![This image shows the result of performing the above step.](./images/create_odb_network1.png " ")
 
-
-When selecting a network topology, consider the following Oracle Exadata Database Service VM cluster networking:
+    When selecting a network topology, consider the following Oracle Exadata Database Service VM cluster networking:
     - Locate Application VPCs in the same Availability Zone as the ODB network and Exadata infrastructure hosting the VM cluster or Autonomous VM Cluster.
     - Carve out two non-overlapping CIDR ranges.
     - Define one CIDR range for the 'Client subnet' with a minimum /27. Oracle recommends that you use /24 for the Client subnet CIDR to accommodate future expansion.
     - Define one CIDR for the 'Backup subnet' with a minimum of /28.
     - IPs are automatically assigned to Autonomous VM clusters from the CIDR range in the Client subnet.
 
-5.   Oracle Database@AWS automatically configures DNS for the ODB network using the preconfigured domain oraclevcn.com. Optionally, you can also specify a custom domain prefix during ODB network provisioning.
+- Oracle Database@AWS automatically configures DNS for the ODB network using the preconfigured domain oraclevcn.com. Optionally, you can also specify a custom domain prefix during ODB network provisioning.
 
-        ![](./images/dns_configuration.png " ")
+    ![This image shows the result of performing the above step.](./images/dns_configuration.png " ")
 
+- Optionally, you can configure network access for Amazon S3 (Database backups) and Zero-ETL and click on 'Create ODB network'.
 
-6.   Optionally, you can configure network access for Amazon S3 (Database backups) and Zero-ETL and click on 'Create ODB network'.
+    ![This image shows the result of performing the above step.](./images/service_integration.png " ")
 
-        ![](./images/service_integration.png " ")
+- Once created, you can view your ODB network on the 'ODB networks' details page.
 
-7.   Once created, you can view your ODB network on the 'ODB networks' details page.
-
-        ![](./images/odb_network_created.png " ")
+    ![This image shows the result of performing the above step.](./images/odb_network_created.png " ")
 
 
 ## Task 2:  ODB peering connections
-1. From 'Oracle Database@AWS' dashboaed, clck on 'ODB peering connections'
+- From 'Oracle Database@AWS' dashboaed, clck on 'ODB peering connections'
 
-    ![](./images/odb_peering.png " ")
+    ![This image shows the result of performing the above step.](./images/odb_peering.png " ")
 
-2.	Click on 'Create ODB peering connection' to create a peer between ODB network and VPC. 
+- Click on 'Create ODB peering connection' to create a peer between ODB network and VPC. 
 
-    ![](./images/odb_peering.png " ")
+    ![This image shows the result of performing the above step.](./images/odb_peering.png " ")
 
-3. Enter the 'ODB peering name', choose the 'ODB network' that contains you Autonomous VM Cluster, and finally choose the VPC 'Peer network' wher your applications exists.
+- Enter the 'ODB peering name', choose the 'ODB network' that contains you Autonomous VM Cluster, and finally choose the VPC 'Peer network' wher your applications exists.
 
-    ![](./images/create_odb_peering.png " ")
+    ![This image shows the result of performing the above step.](./images/create_odb_peering.png " ")
 
+- Optionally, Add Tags and click on 'Create ODB peering connection'.
 
-4. Optionally, Add Tags and click on 'Create ODB peering connection'.
+    ![This image shows the result of performing the above step.](./images/create_odb_peering1.png " ")
 
-    ![](./images/create_odb_peering1.png " ")
 
 You may now **proceed to the next lab** to provision Exadata infrastructure.
 
