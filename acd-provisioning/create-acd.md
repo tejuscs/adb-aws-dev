@@ -97,36 +97,51 @@ Estimated Time: 30 minutes
 
 ## Task 2: Manage Autonomous Container Database
 
+  The Autonomous Data Guard (AuDG) feature of Autonomous Database on Dedicated Exadata Infrastructure enables you to keep your critical production databases available to mission critical applications despite failures, disasters, human error, or data corruption. This kind of capability is often called disaster recovery.
+  Autonomous Container Databases (ACDs) can enable Autonomous Data Guard from their Details page and create up to two standby ACDs. Click [here](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbau/index.html#articletitle) to learn more about AuDG.
+
+- To enable AuDG, navigate to the ACD details page in OCI console, and click on Autonomous Data Guard associations.
+
+  ![This image shows the result of performing the above step.](./images/audg.png " ")
+
+  - Click on Add Standby and pick the Region, Exadata infrastructure, Autonomous VM Cluster and Protection mode. 
+
+    ![This image shows the result of performing the above step.](./images/audg1.png " ")
+
+- To create a Custom Database Software image, click on Actions in ACD details page and Select Create image from database. 
+
+    ![This image shows the result of performing the above step.](./images/databaseimage.png " ")
+
+- Select a compartment, and type in a Display name and click Create. 
+
+    ![This image shows the result of performing the above step.](./images/databaseimage1.png " ")
+
+- To view the existing Autonomous Database Software images, click on Autonomous Database Software from the side Menu under Resources. 
+
+    ![This image shows the result of performing the above step.](./images/viewdatabaseimage.png " ")
+
+- To Rotate Encyption Keys for your database, click on Actions in the ADC Details Page and select Rotate Encryption Key.
+
+    ![This image shows the result of performing the above step.](./images/rotatekey.png " ")
+
+- To View Resource usage within the ACD, click on View details under Resource Usage. This view displays a Chart or Table view for the Provisioned CPUs, Reserved and Reclaimable. Click [Compute Management in Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/cmatt/index.html#articletitle) to learn more about CPU management in Autonomous Database.
+
+    ![This image shows the result of performing the above step.](./images/computemanagement.png " ")
+
+    ![This image shows the result of performing the above step.](./images/computemanagement1.png " ")
+
+- To modify the Backup setting for your Autonomous database, click on Actions under ACD details page, and select Edit backup settings. This will allow you to modify Backup retention period. 
+
+    ![This image shows the result of performing the above step.](./images/editbackup.png " ")
+    
+    ![This image shows the result of performing the above step.](./images/editbackup1.png " ")
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-You may now **proceed to the next lab** to provision Autonomous Container Database.
+You may now **proceed to the next lab** to provision Autonomous Database.
 
 ## Acknowledgements
 
-*All Done! You have successfully created ODB network and ODB peering connection.*
+*All Done! You have successfully created Autonomous Container Database.*
 
 - **Author** - Tejus Subrahmanya, Principal Product Manager, Autonomous Database 
 

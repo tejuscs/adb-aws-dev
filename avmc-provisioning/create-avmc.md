@@ -70,7 +70,7 @@ Estimated Time: 30 minutes
     ![This image shows the result of performing the above step.](./images/avmc_home1.png " ")
 
 
-## Task 1: Manage Autonomous VM Cluster
+## Task 2: Manage Autonomous VM Cluster
 
 - AVMC is managed from the OCI Console. With the tight integration between OCI and AWS, a direct link is available from the AWS Management Console. Click 'Manage in OCI' in your Autonomous VM Cluster details page.
 
