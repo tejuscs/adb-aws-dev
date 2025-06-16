@@ -98,17 +98,97 @@ In this section, you will be provisioning an Autonomous database using the Azure
 
 ## Task 2: Manage Autonomous Database
 
-- 
+- You can monitor the health, capacity, and performance of your Autonomous Databases using metrics, alarms, and notifications. These insights are available through the Oracle Cloud Infrastructure Console or observability APIs. Learn more about [Observability and Monitroing](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/lbdmm/index.html#GUID-85502CAA-6315-44E9-86D6-70AE09812FEB).
+
+- Click on Monitoring under ADB details page. 
+
+    ![This image shows the result of performing the above step.](./images/monitor.png " ")
+
+    ![This image shows the result of performing the above step.](./images/monitor1.png " ")
+
+- Performance Hub allows you to monitor your databases over specific time periods and download detailed statistical reports. It provides both real-time and historical performance insights for Autonomous Databases.
+
+- Click on Performance Hub from your ADB details page. 
+
+    ![This image shows the result of performing the above step.](./images/performance.png " ")
+
+    ![This image shows the result of performing the above step.](./images/performance1.png " ")
+
+- To download AWR Reports for your ADB, click on Resports and select Automatic Workload Repository and pick the Start and End Snapshot time and click Download. 
+
+    ![This image shows the result of performing the above step.](./images/awr.png " ")
+
+    ![This image shows the result of performing the above step.](./images/awr1.png " ")
+
+- Oracle Database Actions, a browser-based application that provides many database development, management and monitoring features, is built into Autonomous Database on Dedicated Exadata Infrastructure. Therefore, you can use it without downloading or installing additional software on your system. Learn more about [Manage and Observe Autonomous Database with Database Actions](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbch/index.html).
+
+- Click on Database actions from the ADB details page, copy the URL. NOTE: To access Database Actions, the system you are using must have network access to the Autonomous Database.
+
+    ![This image shows the result of performing the above step.](./images/dbactions.png " ")
+
+    ![This image shows the result of performing the above step.](./images/dbactions1.png " ")
+
+- Autonomous Database on Dedicated Exadata Infrastructure supports application development with Oracle Application Express (APEX). Oracle APEX on Autonomous Database provides a preconfigured, fully managed, and secured environment to build and deploy world-class data-centric applications. Learn more about [Build an APEX Application](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbcd/index.html#articletitle).
+
+- Click on Tools from ADB details page, and click on Open APEX to copy the URL and start building applications. Note: To access Oracle Applications Express, the system you are using must have network access to the Autonomous Database.
+
+    ![This image shows the result of performing the above step.](./images/apex.png " ")
+
+    ![This image shows the result of performing the above step.](./images/apex1.png " ")
+
+- To create a Clone of your ADB, click on More Actions, and select Create Clone.
+
+    ![This image shows the result of performing the above step.](./images/clone.png " ")
+
+- Select the Clone Type: Full Clone or Metadeta Clone; and the Clone source: Database instance or backup.
+
+    ![This image shows the result of performing the above step.](./images/clone1.png " ")
+
+- Select a Compartment, enter the Display name, Database name, Region, Exadata infrastructure and the AVMC. 
+
+    ![This image shows the result of performing the above step.](./images/clone2.png " ")
+
+- Select the ACD you want to clone this ADB to, and enter the CPU and Storage details.
+
+    ![This image shows the result of performing the above step.](./images/clone3.png " ")
+
+- Optionally you can add the ADB to an existing or a new Elastic Pool. Specify the password for ADMIN.
+
+    ![This image shows the result of performing the above step.](./images/clone4.png " ")
+
+- Optionally specify the Network access configuration and enter a customer contact details for notification and click on Clone. 
+
+    ![This image shows the result of performing the above step.](./images/clone5.png " ")
+
+- You can manage start, stop, and restart an Autonomous Database from its Details page. Click on Start/Stop, Restart under More Actions from the ADB details page. 
+
+    ![This image shows the result of performing the above step.](./images/start.png " ")
 
 
+- To ensure a secure connection, certificate authentication uses an encrypted key stored in a wallet on both the client (where the application runs) and the server (where the Autonomous Database resides). The client’s key must match the server’s key to establish a connection. The wallet contains the key and other necessary files for database connectivity, and all communication between client and server is encrypted. Learn more about [Connect to Autonomous Database](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbbd/index.html#articletitle).
+
+- To download a secure wallet, click on Database connections from the ADB details page, click on Download wallet, enter a password for your wallet and click download.
+
+    ![This image shows the result of performing the above step.](./images/connect.png " ")
+
+    ![This image shows the result of performing the above step.](./images/wallet.png " ")
+
+    ![This image shows the result of performing the above step.](./images/wallet1.png " ")
+
+- Autonomous Database on Dedicated Exadata Infrastructure provides multiple sets of database services to use when connecting to your database. A connection string is created for each of the above database connection services. Learn more about [Predefined Database Service Names for Autonomous Databases](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbbd/index.html#GUID-07401C82-6A01-4CDF-AAE5-54B78B50CA0A).
+
+- To view the TCP and TLS connect strings, click on Database connections from the ADB details page. 
+
+    ![This image shows the result of performing the above step.](./images/connect.png " ")
+    
+    ![This image shows the result of performing the above step.](./images/connect1.png " ")
+
+- To view backups for your ADB, click on Backups in the ADB details page. NOTE: You can Restore or Create a Clone from ther backups. 
+
+    ![This image shows the result of performing the above step.](./images/backup.png " ")
 
 
-
-
-
-
-
-
+*You have now successfully provisioned and managed ODB networks, Exadata infrastructure, Autonomous VM Cluster, Autonomous Container Database, and Autonomous Database. You learned how to create ADB resources in AWS, monitor the performance, explore advanced tools like APEX, Database actions, and how to connect your applications to ADB. By completing this lab, you are now equipped with practical skills to deply, observe, manage Autonomous Database in AWS.*
 
 ## Acknowledgements
 
