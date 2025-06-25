@@ -7,11 +7,7 @@ Autonomous VM Clusters (AVMCs) allow a physical Exadata Cluster (Machine) to be 
 
 The AVMC is one of the infrastructure components of the four-level database architecture model on which an Autonomous Container Database is built. One or more AVMCs are provisioned inside an Exadata Infrastructure resource (EI), providing the link between the EI and the Autonomous Container Database resources in your deployment.
 
-AVMCs provide isolated environments for different database workloads through separate access rules, network configurations, as well as customizable compute memory, and storage resources.
-
-
 In this lab, you will learn how to Create and Manage Autonomous VM Cluster.
-
 
 Estimated Time: 30 minutes
 
@@ -45,11 +41,13 @@ Estimated Time: 30 minutes
     ![This image shows the result of performing the above step.](./images/db_servers.png " ")
 
 
-- Enter the details for ECPU core count per VM, Database memory per ECPU, Database storage, Maximum number of Autonomous Container Databases (The minimum and maximum values depend upon resources available in your Exadata Infrastructure).
+- Enter the details for ECPU core count per VM, Database memory per ECPU, Database storage, Maximum number of Autonomous Container Databases (The minimum and maximum values depend upon resources available in your Exadata Infrastructure). 
+
+- NOTE: The resources you specify will be reserved from the underlying infrastructure, so it’s important to allocate only what your expected workload requires, this helps ensure availability for other AVMC creations. You can scale your AVMC later if additional resources are needed.
     
     ![This image shows the result of performing the above step.](./images/ecpu.png " ")
 
-- Configure connectivity allows you to select the ODB network, and modify the Scan listener port settings. The default for Port (non-TLS) is set to 1521 and he default for Port (TLS) is set to 2484. Optionally, you can Enable mutual TLS (mTLS) authentication.
+- Configure connectivity allows you to select the ODB network, and modify the Scan listener port settings. An Oracle SCAN listener (Single Client Access Name listener) is a component of Oracle Real Application Clusters (RAC) that provides a single, stable client entry point to the entire cluster—regardless of which node hosts the database service. The default for Port (non-TLS) is set to 1521 and he default for Port (TLS) is set to 2484. Optionally, you can Enable mutual TLS (mTLS) authentication.
 
     ![This image shows the result of performing the above step.](./images/connectivity.png " ")
 
@@ -58,7 +56,7 @@ Estimated Time: 30 minutes
     ![This image shows the result of performing the above step.](./images/maintenance.png " ")
 
 
-- Review and Create your Autonomous VM Cluster.
+- Review and Create your Autonomous VM Cluster. This step can take several hours.
 
     ![This image shows the result of performing the above step.](./images/review.png " ")
 
@@ -90,10 +88,6 @@ Estimated Time: 30 minutes
 - Autonomous Exadata VM clusters details page lists all the available AVMCs in your Tenancy.
 
     ![This image shows the result of performing the above step.](./images/oci3.png " ")
-
-- Make sure to select the correct 'Compartment' to view your AVMC provisioned in AWS.
-
-    ![This image shows the result of performing the above step.](./images/compartment.png " ")
 
 - Click on your AVMC to view the details of the resource. 
 
