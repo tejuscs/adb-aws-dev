@@ -1,6 +1,11 @@
 # About this Workshop
 
 ## Introduction to Oracle Database@AWS
+
+Oracle Database@AWS is an Oracle Cloud Database service that runs Oracle Database workloads in your AWS environment..
+
+When you implement this solution, you deploy resources in two cloud environments: database resources are in AWS, while the database administration control plane is in Oracle Cloud Infrastructure (OCI). This lets you deploy Oracle Database products in your AWS environment while OCI maintains the administration capabilities. Learn more about [Oracle Database@AWS](https://docs.oracle.com/en-us/iaas/Content/database-at-aws/oaaws-overview-what-is-oaaws.htm).
+
 The Autonomous Database hands-on lab provides users with step-by-step instructions to create and manage ODB Network, Exadata infrastructure, Autonomous VM Cluster, Autonomous Container Database and Autonomous Database in AWS.  
 
 Estimated Workshop Time: 120 minutes
