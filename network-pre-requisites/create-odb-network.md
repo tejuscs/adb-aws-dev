@@ -22,7 +22,7 @@ You can find more information about onboarding [here](https://docs.aws.amazon.co
     ![This image shows the result of performing the above step.](./images/architecture.png " ")
 
 
-Oracle Exadata Database Service runs within an OCI-managed child site inside the ODB network, which is dedicated to Oracle Database@AWS. Customer applications hosted in an AWS application VPC connect to Oracle Database@AWS using the supported database connection methods.
+Oracle Exadata Infrastructure runs within an OCI-managed child site inside the ODB network (a specialized AWS VPC), which is dedicated to Oracle Database@AWS. The Oracle Exadata dedicated infrastructure can simultaneously host VM Clusters for both Exadata Database Service and Autonomous Database Service.  Customer applications hosted in an AWS application VPC connect to Oracle Database@AWS using supported database connection methods. This tutorial will focus on Autonomous Database Service.
 
 
 Estimated Time: 15 minutes
@@ -67,7 +67,7 @@ As a database user, network architect, or application developer:
 
     ![This image shows the result of performing the above step.](./images/dns_configuration.png " ")
 
-- Optionally, you can configure network access for Amazon S3 (Database backups) and Zero-ETL and click on 'Create ODB network'.
+- Optionally, you can configure network access for Amazon S3 (Database backups) and Zero-ETL and click on 'Create ODB network'. NOTE: Oracle Database@AWS preconfigures your network access for Oracle managed automatic backups to Amazon S3.
 
     ![This image shows the result of performing the above step.](./images/service_integration.png " ")
 
