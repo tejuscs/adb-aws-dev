@@ -59,6 +59,8 @@ Estimated Time: 30 minutes
 - In the Configure database backups section, configure database backups by specifying the settings for backing up the database.
 
   Enable automatic backup: Select to enable automatic backups for this database.
+  
+  NOTE: Automatic backups are stored in Amazon S3 by default, but you can choose to change the backup destination to Oracle Object Storage if preferred.
 
   ![This image shows the result of performing the above step.](./images/backup.png " ")
 
