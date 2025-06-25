@@ -63,11 +63,11 @@ As a database user, network architect, or application developer:
     - Define one CIDR for the 'Backup subnet' with a minimum of /28.
     - IPs are automatically assigned to Autonomous VM clusters from the CIDR range in the Client subnet.
 
-- Oracle Database@AWS automatically configures DNS for the ODB network using the preconfigured domain oraclevcn.com. Optionally, you can also specify a custom domain prefix during ODB network provisioning.
+- Oracle Database@AWS automatically configures DNS for the ODB network using the pre-configured domain oraclevcn.com. Optionally, you can also specify a custom domain prefix during ODB network provisioning.
 
     ![This image shows the result of performing the above step.](./images/dns_configuration.png " ")
 
-- Optionally, you can configure network access for Amazon S3 (Database backups) and Zero-ETL and click on 'Create ODB network'. NOTE: Oracle Database@AWS preconfigures your network access for Oracle managed automatic backups to Amazon S3.
+- Optionally, you can configure network access for Amazon S3 (Database backups) and Zero-ETL and click on 'Create ODB network'. NOTE: Oracle Database@AWS pre-configures your network access for Oracle managed automatic backups to Amazon S3.
 
     ![This image shows the result of performing the above step.](./images/service_integration.png " ")
 
@@ -77,7 +77,7 @@ As a database user, network architect, or application developer:
 
 
 ## Task 2:  ODB peering connections
-- From 'Oracle Database@AWS' dashboaed, clck on 'ODB peering connections'.
+- From 'Oracle Database@AWS' dashboard, click on 'ODB peering connections'.
 
     ![This image shows the result of performing the above step.](./images/odb_peering.png " ")
 
@@ -85,7 +85,7 @@ As a database user, network architect, or application developer:
 
     ![This image shows the result of performing the above step.](./images/odb_peering.png " ")
 
-- Enter the 'ODB peering name', choose the 'ODB network' that contains you Autonomous VM Cluster, and finally choose the VPC 'Peer network' wher your applications exists.
+- Enter the 'ODB peering name', choose the 'ODB network' that contains you Autonomous VM Cluster, and finally choose the VPC 'Peer network' where your applications exists.
 
     ![This image shows the result of performing the above step.](./images/create_odb_peering.png " ")
 

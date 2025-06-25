@@ -18,16 +18,16 @@ As a database user, DBA or application developer:
 
 ### Required Artifacts
 
-- A pre-provsioned ODB Network
-- A pre-provsioned Oracle Exadata Infrastructure
-- A pre-provsioned Autonomous VM Cluster
+- A pre-provisioned ODB Network
+- A pre-provisioned Oracle Exadata Infrastructure
+- A pre-provisioned Autonomous VM Cluster
 - A pre-provisioned Autonomous Container Database
 
 ## Task 1: Create Autonomous Database
 
 In this section, you will be provisioning an Autonomous database using the Azure portal.
 
-1.	- Autonomous Database creation is managed from the OCI Console. From your AVMC details page in AWS, click “Manage in OCI” and log in to your OCI tenancy.
+- Autonomous Database creation is managed from the OCI Console. From your AVMC details page in AWS, click “Manage in OCI” and log in to your OCI tenancy.
 
   ![Manage in OCI](./images/manageinoci.png " ")
 
@@ -39,11 +39,11 @@ In this section, you will be provisioning an Autonomous database using the Azure
 
   ![This image shows the result of performing the above step.](./images/adb.png " ")
 
-- ADB Details page lists all the avialable Autonomous Databases in the selected Compartment.
+- ADB Details page lists all the available Autonomous Databases in the selected Compartment.
 
   ![This image shows the result of performing the above step.](./images/adb1.png " ")
 
-- Click Create Autonomous Database to provision a new ADB. Enter a Display Name, Database name, Select a Compartment,and the Workload type. You can configure your database in two different modes based on the workload type, as: Autonomous Data Warehouse and Autonomous Transaction Processing. Click [here](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbaa/index.html#articletitle) to learn more about Workload types supported in Autonomoud Database.
+- Click Create Autonomous Database to provision a new ADB. Enter a Display Name, Database name, Select a Compartment,and the Workload type. You can configure your database in two different modes based on the workload type, as: Autonomous Data Warehouse and Autonomous Transaction Processing. Click [here](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbaa/index.html#articletitle) to learn more about Workload types supported in Autonomous Database.
 
   ![This image shows the result of performing the above step.](./images/createadb.png " ")
 
@@ -60,7 +60,7 @@ In this section, you will be provisioning an Autonomous database using the Azure
 
     ![This image shows the result of performing the above step.](./images/createabd2.png " ")
 
-- Optionally, you can also Enable Elatic Pool for the ADB. 
+- Optionally, you can also Enable Elastic Pool for the ADB. 
    
     Use an elastic pool to consolidate your Autonomous Database instances, in terms of their allocation of compute resources, and to provide up to 87% cost savings. 
     Elastic pools help you improve operating efficiency and reduce costs by bringing all of your databases to the Cloud. This also supports consolidating resources and simplifying administration and operations by using Autonomous Database. When you need a large number of databases, that can scale up and down elastically without downtime, you can benefit by creating and using elastic pools. Learn more about [Elastic Pools](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/catiu/index.html#articletitle).
@@ -98,7 +98,7 @@ In this section, you will be provisioning an Autonomous database using the Azure
 
 ## Task 2: Manage Autonomous Database
 
-- You can monitor the health, capacity, and performance of your Autonomous Databases using metrics, alarms, and notifications. These insights are available through the Oracle Cloud Infrastructure Console or observability APIs. Learn more about [Observability and Monitroing](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/lbdmm/index.html#GUID-85502CAA-6315-44E9-86D6-70AE09812FEB).
+- You can monitor the health, capacity, and performance of your Autonomous Databases using metrics, alarms, and notifications. These insights are available through the Oracle Cloud Infrastructure Console or observability APIs. Learn more about [Observability and Monitoring](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/lbdmm/index.html#GUID-85502CAA-6315-44E9-86D6-70AE09812FEB).
 
 - Click on Monitoring under ADB details page. 
 
@@ -114,7 +114,7 @@ In this section, you will be provisioning an Autonomous database using the Azure
 
     ![This image shows the result of performing the above step.](./images/performance1.png " ")
 
-- To download AWR Reports for your ADB, click on Resports and select Automatic Workload Repository and pick the Start and End Snapshot time and click Download. 
+- To download AWR Reports for your ADB, click on Reports and select Automatic Workload Repository and pick the Start and End Snapshot time and click Download. 
 
     ![This image shows the result of performing the above step.](./images/awr.png " ")
 
@@ -128,7 +128,7 @@ In this section, you will be provisioning an Autonomous database using the Azure
 
     ![This image shows the result of performing the above step.](./images/dbactions1.png " ")
 
-- Autonomous Database on Dedicated Exadata Infrastructure supports application development with Oracle Application Express (APEX). Oracle APEX on Autonomous Database provides a preconfigured, fully managed, and secured environment to build and deploy world-class data-centric applications. Learn more about [Build an APEX Application](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbcd/index.html#articletitle).
+- Autonomous Database on Dedicated Exadata Infrastructure supports application development with Oracle Application Express (APEX). Oracle APEX on Autonomous Database provides a pre-configured, fully managed, and secured environment to build and deploy world-class data-centric applications. Learn more about [Build an APEX Application](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbcd/index.html#articletitle).
 
 - Click on Tools from ADB details page, and click on Open APEX to copy the URL and start building applications. Note: To access Oracle Applications Express, the system you are using must have network access to the Autonomous Database.
 
@@ -140,7 +140,7 @@ In this section, you will be provisioning an Autonomous database using the Azure
 
     ![This image shows the result of performing the above step.](./images/clone.png " ")
 
-- Select the Clone Type: Full Clone or Metadeta Clone; and the Clone source: Database instance or backup.
+- Select the Clone Type: Full Clone or Metadata Clone; and the Clone source: Database instance or backup.
 
     ![This image shows the result of performing the above step.](./images/clone1.png " ")
 
@@ -183,12 +183,12 @@ In this section, you will be provisioning an Autonomous database using the Azure
     
     ![This image shows the result of performing the above step.](./images/connect1.png " ")
 
-- To view backups for your ADB, click on Backups in the ADB details page. NOTE: You can Restore or Create a Clone from ther backups. 
+- To view backups for your ADB, click on Backups in the ADB details page. NOTE: You can Restore or Create a Clone from the backups. 
 
     ![This image shows the result of performing the above step.](./images/backup.png " ")
 
 
-*You have now successfully provisioned and managed ODB networks, Exadata infrastructure, Autonomous VM Cluster, Autonomous Container Database, and Autonomous Database. You learned how to create ADB resources in AWS, monitor the performance, explore advanced tools like APEX, Database actions, and how to connect your applications to ADB. By completing this lab, you are now equipped with practical skills to deply, observe, manage Autonomous Database in AWS.*
+*You have now successfully provisioned and managed ODB networks, Exadata infrastructure, Autonomous VM Cluster, Autonomous Container Database, and Autonomous Database. You learned how to create ADB resources in AWS, monitor the performance, explore advanced tools like APEX, Database actions, and how to connect your applications to ADB. By completing this lab, you are now equipped with practical skills to deploy, observe, manage Autonomous Database in AWS.*
 
 ## Acknowledgements
 

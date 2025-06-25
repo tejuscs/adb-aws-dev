@@ -17,8 +17,8 @@ Estimated Time: 30 minutes
 
 ### Required Artifacts
 
-- Pre-provsioned Oracle Exadata Infrastructure
-- Pre-provsioned ODB Network
+- Pre-provisioned Oracle Exadata Infrastructure
+- Pre-provisioned ODB Network
 
 ## Task 1: Create Autonomous VM Cluster
 
@@ -81,7 +81,7 @@ Estimated Time: 30 minutes
 
     ![This image shows the result of performing the above step.](./images/oci1.png " ")
 
-- Expand the Menu and clic on 'Autonomous Exadata VM Cluster'.
+- Expand the Menu and click on 'Autonomous Exadata VM Cluster'.
 
     ![This image shows the result of performing the above step.](./images/oci2.png " ")
 

@@ -6,15 +6,12 @@ Provisioning Oracle Exadata Infrastructure is a required first step before creat
 
 This Lab walks you through on how to Create Exadata Infrastructure in AWS. 
 
-
 Estimated Time: 15 minutes
-
 
 ### Objectives
 
 As a database user, DBA or application developer,
 1. Create Exadata Infrastructure
-
 
 ## Task 1: Create Exadata Infrastructure
 

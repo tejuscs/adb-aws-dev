@@ -16,9 +16,9 @@ Estimated Time: 30 minutes
 2. Manage Autonomous Container Databases
 
 ### Prerequisites
-- A pre-provsioned ODB Network
-- A pre-provsioned Oracle Exadata Infrastructure
-- A pre-provsioned Autonomous VM Cluster
+- A pre-provisioned ODB Network
+- A pre-provisioned Oracle Exadata Infrastructure
+- A pre-provisioned Autonomous VM Cluster
 
 
 ## Task 1: Create Autonomous Container Database
@@ -31,11 +31,11 @@ Estimated Time: 30 minutes
 
   ![This image shows the result of performing the above step.](./images/adb.png " ")
 
-  - Expand the Menu and select Autonomous Contanier Database.
+  - Expand the Menu and select Autonomous Container Database.
 
   ![This image shows the result of performing the above step.](./images/acd.png " ")
 
-  - ACD Details page lists all the avialable Autonomous Container Databases in the selected Compartment.
+  - ACD Details page lists all the available Autonomous Container Databases in the selected Compartment.
 
   ![This image shows the result of performing the above step.](./images/acdhome.png " ")
 
@@ -64,7 +64,7 @@ Estimated Time: 30 minutes
 
   ![This image shows the result of performing the above step.](./images/backup.png " ")
 
-- Enter Customer Contact to recieve notifications and announcements.
+- Enter Customer Contact to receive notifications and announcements.
 
   ![This image shows the result of performing the above step.](./images/contacts.png " ")
 
@@ -82,7 +82,7 @@ Estimated Time: 30 minutes
 
 - Advanced options: Net services architecture
 
-    Optionally, you can enable Shared Server architecture whch enables a database server to allow many client processes to share very few server processes. 
+    Optionally, you can enable Shared Server architecture which enables a database server to allow many client processes to share very few server processes. 
 
   ![This image shows the result of performing the above step.](./images/sharedserver.png " ")
 
@@ -122,7 +122,7 @@ Estimated Time: 30 minutes
 
     ![This image shows the result of performing the above step.](./images/viewdatabaseimage.png " ")
 
-- To Rotate Encyption Keys for your database, click on Actions in the ADC Details Page and select Rotate Encryption Key.
+- To Rotate Encryption Keys for your database, click on Actions in the ADC Details Page and select Rotate Encryption Key.
 
     ![This image shows the result of performing the above step.](./images/rotatekey.png " ")
 
