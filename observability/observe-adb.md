@@ -74,7 +74,7 @@ While viewing individual metrics is useful, a dashboard provides a consolidated,
 
 - Add a widget to display the **CPUUtilization** metric.
 
-![This image shows the result of performing the above step.](./images/2_5.png " ")
+![This image shows the result of performing the above step.](./images/2_4.png " ")
 
 ![This image shows the result of performing the above step.](./images/2_9.png " ")
 
