@@ -22,49 +22,98 @@ In this lab, you will learn how to:
 - Basic understanding of the AWS Management Console, specifically CloudWatch and EventBridge.
 
 
-## Lab 1: Exploring Database Metrics in AWS CloudWatch
+## Task 1: Exploring Database Metrics in AWS CloudWatch
 
 ### Introduction
-Oracle Database@AWS - Autonomous Database on Dedicated Infrastructure automatically publishes a rich set of performance and health metrics directly to AWS CloudWatch. This allows you to monitor your database using the same tools you use for the rest of your AWS infrastructure. In this lab, you'll learn how to find and analyze these metrics.
+Oracle Database@AWS - Autonomous Database on Dedicated Infrastructure automatically publishes a rich set of performance and health metrics directly to AWS CloudWatch. This allows you to monitor your database using the same tools you use for the rest of your AWS infrastructure. In this task, you'll learn how to find and analyze these metrics.
 
-### Tasks
-1. Navigate to the **AWS CloudWatch** service.  
-2. Find the **OracleDatabase@AWS** custom metric namespace.  
-3. Explore the available metrics and their dimensions (e.g., `dbName`, `dbId`).  
-4. Graph a key metric like **CPUUtilization** to view its recent activity.
+### Steps
+- Navigate to the **AWS CloudWatch** service.  
 
+![This image shows the result of performing the above step.](./images/1_1.png " ")
 
-## Lab 2: Visualizing Performance with CloudWatch Dashboards
+![This image shows the result of performing the above step.](./images/1_2.png " ")
+
+- Find the **OracleDatabase@AWS** custom metric namespaces.
+
+![This image shows the result of performing the above step.](./images/1_3.png " ")
+
+- Within **OracleDatabase@AWS** custom metric namespaces find the Autonomous Database metrics
+
+![This image shows the result of performing the above step.](./images/1_4.png " ")
+
+- Explore the available metrics and their dimensions (e.g., `dbName`, `dbId`).
+
+![This image shows the result of performing the above step.](./images/1_5.png " ")
+
+- Graph a key metric like **CPUUtilization** to view its recent activity.
+
+![This image shows the result of performing the above step.](./images/1_6.png " ")
+
+![This image shows the result of performing the above step.](./images/1_7.png " ")
+
+- Change the time granularity in the graph
+
+![This image shows the result of performing the above step.](./images/1_8.png " ")
+
+## Task 2: Visualizing Performance with CloudWatch Dashboards
 
 ### Introduction
-While viewing individual metrics is useful, a dashboard provides a consolidated, at-a-glance view of your database's health. In this lab, you will create a custom CloudWatch Dashboard to monitor the most important metrics for your database.
+While viewing individual metrics is useful, a dashboard provides a consolidated, at-a-glance view of your database's health. In this task, you will create a custom CloudWatch Dashboard to monitor the most important metrics for your database.
 
-### Tasks
-1. Create a new **CloudWatch Dashboard**.  
-2. Add a widget to display the **CPUUtilization** metric.  
-3. Add widgets for other key metrics, such as **StorageUtilization** and **SessionCount**.  
-4. Customize the layout and widget types for clarity.
+### Steps
+- Create a new **CloudWatch Dashboard**.  
 
+![This image shows the result of performing the above step.](./images/2_0.png " ")
 
-## Lab 3: Proactive Monitoring with CloudWatch Alarms
+![This image shows the result of performing the above step.](./images/2_1.png " ")
+
+![This image shows the result of performing the above step.](./images/2_2.png " ")
+
+![This image shows the result of performing the above step.](./images/2_3.png " ")
+
+- Add a widget to display the **CPUUtilization** metric.
+
+![This image shows the result of performing the above step.](./images/2_5.png " ")
+
+![This image shows the result of performing the above step.](./images/2_9.png " ")
+
+- Add widgets for other key metrics, such as **StorageUtilization** and **Sessions**.
+
+![This image shows the result of performing the above step.](./images/2_10.png " ")
+
+![This image shows the result of performing the above step.](./images/2_6.png " ")
+
+![This image shows the result of performing the above step.](./images/2_9.png " ")
+
+![This image shows the result of performing the above step.](./images/2_10.png " ")
+
+![This image shows the result of performing the above step.](./images/2_7.png " ")
+
+![This image shows the result of performing the above step.](./images/2_9.png " ")
+
+- View the Dashboard
+
+![This image shows the result of performing the above step.](./images/2_8.png " ")
+
+## Task 3: Proactive Monitoring with CloudWatch Alarms
 
 ### Introduction
 Dashboards are great for observing performance, but alarms are essential for proactive management. CloudWatch Alarms can automatically notify you when a metric crosses a defined threshold, allowing you to respond to potential issues before they impact users.
 
-### Tasks
+### Steps
 1. Select a metric to create an alarm for (e.g., **CPUUtilization**).  
 2. Configure the alarm conditions (e.g., trigger when CPU is **above 80% for 5 minutes**).  
 3. Create a new **Amazon SNS (Simple Notification Service)** topic to send notifications.  
 4. Create the alarm and confirm your SNS email subscription.  
 5. *(Optional)* Temporarily lower the alarm threshold to test the notification flow.
 
-
-## Lab 4: Capturing Events with Amazon EventBridge and CloudWatch Logs
+## Task 4: Capturing Events with Amazon EventBridge and CloudWatch Logs
 
 ### Introduction
 Beyond metrics, your database emits important lifecycle and state-change events. Oracle Database@AWS sends these events to **Amazon EventBridge**, allowing you to build event-driven automations. A common use case is to log all events for auditing and analysis.
 
-### Tasks
+### Steps
 1. Navigate to the **Amazon EventBridge** service.  
 2. Create a new rule that listens for events from the `aws.oracle` source.  
 3. Define an event pattern to capture all events from your database.  
@@ -75,5 +124,5 @@ Beyond metrics, your database emits important lifecycle and state-change events.
 
 - **Author** - German Viscuso, Director of Developer Community, Autonomous Database
 
-- **Last Updated By/Date** - German Viscuso, September 2025
+- **Last Updated By/Date** - German Viscuso, October 2025
 
