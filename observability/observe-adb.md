@@ -169,8 +169,6 @@ Beyond metrics, your database emits important lifecycle and state-change events.
 
 ![This image shows the result of performing the above step.](./images/4_13.png " ")
 
-![This image shows the result of performing the above step.](./images/4_14.png " ")
-
 5. (Optional) Perform an action on your database (e.g., stop and start it) and verify that the corresponding events appear in your CloudWatch Log stream.
 
 ## Acknowledgements
