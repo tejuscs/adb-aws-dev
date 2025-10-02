@@ -143,11 +143,35 @@ Do Steps 1 to 5 in Task 1 above and then click on the "Create alarm" button.
 Beyond metrics, your database emits important lifecycle and state-change events. Oracle Database@AWS sends these events to **Amazon EventBridge**, allowing you to build event-driven automations. A common use case is to log all events for auditing and analysis.
 
 ### Steps
-1. Navigate to the **Amazon EventBridge** service.  
-2. Create a new rule that listens for events from the `aws.oracle` source.  
-3. Define an event pattern to capture all events from your database.  
-4. Configure **AWS CloudWatch Logs** as the target for the rule.  
-5. Perform an action on your database (e.g., stop and start it) and verify that the corresponding events appear in your CloudWatch Log stream.
+1. Navigate to the **Amazon EventBridge** service.
+
+![This image shows the result of performing the above step.](./images/4_2.png " ")
+
+![This image shows the result of performing the above step.](./images/4_3.png " ")
+
+2. Create a new rule that listens for events from the `aws.partner/odb` source.
+
+![This image shows the result of performing the above step.](./images/4_4.png " ")
+
+3. Define an event pattern to capture all events from your database.
+
+![This image shows the result of performing the above step.](./images/4_7.png " ")
+
+![This image shows the result of performing the above step.](./images/4_8.png " ")
+
+4. Configure **AWS CloudWatch Logs** as the target for the rule.
+
+![This image shows the result of performing the above step.](./images/4_10.png " ")
+
+![This image shows the result of performing the above step.](./images/4_11.png " ")
+
+![This image shows the result of performing the above step.](./images/4_12.png " ")
+
+![This image shows the result of performing the above step.](./images/4_13.png " ")
+
+![This image shows the result of performing the above step.](./images/4_14.png " ")
+
+5. (Optional) Perform an action on your database (e.g., stop and start it) and verify that the corresponding events appear in your CloudWatch Log stream.
 
 ## Acknowledgements
 
