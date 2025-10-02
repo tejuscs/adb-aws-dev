@@ -28,31 +28,31 @@ In this lab, you will learn how to:
 Oracle Database@AWS - Autonomous Database on Dedicated Infrastructure automatically publishes a rich set of performance and health metrics directly to AWS CloudWatch. This allows you to monitor your database using the same tools you use for the rest of your AWS infrastructure. In this task, you'll learn how to find and analyze these metrics.
 
 ### Steps
-- Navigate to the **AWS CloudWatch** service.  
+1. Navigate to the **AWS CloudWatch** service.  
 
 ![This image shows the result of performing the above step.](./images/1_1.png " ")
 
 ![This image shows the result of performing the above step.](./images/1_2.png " ")
 
-- Find the **OracleDatabase@AWS** custom metric namespaces.
+2. Find the **OracleDatabase@AWS** custom metric namespaces.
 
 ![This image shows the result of performing the above step.](./images/1_3.png " ")
 
-- Within **OracleDatabase@AWS** custom metric namespaces find the Autonomous Database metrics
+3. Within **OracleDatabase@AWS** custom metric namespaces find the Autonomous Database metrics
 
 ![This image shows the result of performing the above step.](./images/1_4.png " ")
 
-- Explore the available metrics and their dimensions (e.g., `dbName`, `dbId`).
+4. Explore the available metrics and their dimensions (e.g., `dbName`, `dbId`).
 
 ![This image shows the result of performing the above step.](./images/1_5.png " ")
 
-- Graph a key metric like **CPUUtilization** to view its recent activity.
+5. Graph a key metric like **CPUUtilization** to view its recent activity.
 
 ![This image shows the result of performing the above step.](./images/1_6.png " ")
 
 ![This image shows the result of performing the above step.](./images/1_7.png " ")
 
-- Change the time granularity in the graph
+6. Change the time granularity in the graph
 
 ![This image shows the result of performing the above step.](./images/1_8.png " ")
 
@@ -62,7 +62,7 @@ Oracle Database@AWS - Autonomous Database on Dedicated Infrastructure automatica
 While viewing individual metrics is useful, a dashboard provides a consolidated, at-a-glance view of your database's health. In this task, you will create a custom CloudWatch Dashboard to monitor the most important metrics for your database.
 
 ### Steps
-- Create a new **CloudWatch Dashboard**.  
+1. Create a new **CloudWatch Dashboard**.  
 
 ![This image shows the result of performing the above step.](./images/2_0.png " ")
 
@@ -72,13 +72,13 @@ While viewing individual metrics is useful, a dashboard provides a consolidated,
 
 ![This image shows the result of performing the above step.](./images/2_3.png " ")
 
-- Add a widget to display the **CPUUtilization** metric.
+2. Add a widget to display the **CPUUtilization** metric.
 
 ![This image shows the result of performing the above step.](./images/2_4.png " ")
 
 ![This image shows the result of performing the above step.](./images/2_9.png " ")
 
-- Add widgets for other key metrics, such as **StorageUtilization** and **Sessions**.
+3. Add widgets for other key metrics, such as **StorageUtilization** and **Sessions**.
 
 ![This image shows the result of performing the above step.](./images/2_10.png " ")
 
@@ -92,7 +92,7 @@ While viewing individual metrics is useful, a dashboard provides a consolidated,
 
 ![This image shows the result of performing the above step.](./images/2_9.png " ")
 
-- View the Dashboard
+4. View the Dashboard
 
 ![This image shows the result of performing the above step.](./images/2_8.png " ")
 
@@ -102,10 +102,39 @@ While viewing individual metrics is useful, a dashboard provides a consolidated,
 Dashboards are great for observing performance, but alarms are essential for proactive management. CloudWatch Alarms can automatically notify you when a metric crosses a defined threshold, allowing you to respond to potential issues before they impact users.
 
 ### Steps
-1. Select a metric to create an alarm for (e.g., **CPUUtilization**).  
-2. Configure the alarm conditions (e.g., trigger when CPU is **above 80% for 5 minutes**).  
-3. Create a new **Amazon SNS (Simple Notification Service)** topic to send notifications.  
-4. Create the alarm and confirm your SNS email subscription.  
+1. Select a metric to create an alarm for (e.g., **CPUUtilization**).
+
+Do Steps 1 to 5 in Task 1 above and then click on the "Create alarm" button.
+
+
+![This image shows the result of performing the above step.](./images/3_3.png " ")
+
+2. Configure the alarm conditions (e.g., trigger when CPU is **above 80% utilization for 5 minutes**).  
+
+![This image shows the result of performing the above step.](./images/3_5.png " ")
+
+![This image shows the result of performing the above step.](./images/3_6.png " ")
+
+3. Create a new **Amazon SNS (Simple Notification Service)** topic to send notifications.
+
+![This image shows the result of performing the above step.](./images/3_8.png " ")
+
+![This image shows the result of performing the above step.](./images/3_9.png " ")
+
+![This image shows the result of performing the above step.](./images/3_10.png " ")
+
+4. Create the alarm and confirm your SNS email subscription.
+
+![This image shows the result of performing the above step.](./images/3_11.png " ")
+
+![This image shows the result of performing the above step.](./images/3_12.png " ")
+
+![This image shows the result of performing the above step.](./images/3_13.png " ")
+
+![This image shows the result of performing the above step.](./images/3_14.png " ")
+
+![This image shows the result of performing the above step.](./images/3_16.png " ")
+
 5. *(Optional)* Temporarily lower the alarm threshold to test the notification flow.
 
 ## Task 4: Capturing Events with Amazon EventBridge and CloudWatch Logs
