@@ -123,7 +123,7 @@ Do Steps 1 to 5 in Task 1 above and then click on the "Create alarm" button.
 
 ![This image shows the result of performing the above step.](./images/3_10.png " ")
 
-4. Create the alarm and confirm your SNS email subscription.
+4. Create the alarm, confirm your SNS email subscription and get the alarm notification when fired.
 
 ![This image shows the result of performing the above step.](./images/3_11.png " ")
 
@@ -135,7 +135,9 @@ Do Steps 1 to 5 in Task 1 above and then click on the "Create alarm" button.
 
 ![This image shows the result of performing the above step.](./images/3_16.png " ")
 
-5. *(Optional)* Temporarily lower the alarm threshold to test the notification flow.
+5. *(Optional)* Temporarily lower the alarm threshold to test the notification flow (you'd get an e-mail like the one below)
+
+![This image shows the result of performing the above step.](./images/3_17.png " ")
 
 ## Task 4: Capturing Events with Amazon EventBridge and CloudWatch Logs
 
