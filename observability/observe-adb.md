@@ -20,7 +20,7 @@ In this lab, you will learn how to:
 - An Oracle Database@AWS environment must be pre-provisioned. This lab does not cover the provisioning of the network, Exadata Infrastructure, or the Autonomous Database itself. For detailed instructions on provisioning, please complete the [Oracle Database@AWS- Autonomous Database on dedicated infrastructure](https://livelabs.oracle.com/pls/apex/r/dbpm/livelabs/view-workshop?wid=4203) LiveLab first.
 - Familiarity with Oracle Database concepts.
 - Basic understanding of the AWS Management Console, specifically CloudWatch and EventBridge.
-
+- Familiarity with available ADB-D Metrics on AWS: https://docs.oracle.com/en-us/iaas/Content/database-at-aws-exadata-awsmn/awsmn-monitor-cloudwatch.html
 
 ## Task 1: Exploring Database Metrics in AWS CloudWatch
 
@@ -151,7 +151,7 @@ Beyond metrics, your database emits important lifecycle and state-change events.
 
 ![This image shows the result of performing the above step.](./images/4_3.png " ")
 
-2. Create a new rule that listens for events from the `aws.partner/odb` source.
+2. Create a new rule that listens for events from the `odb` event bus.
 
 ![This image shows the result of performing the above step.](./images/4_4.png " ")
 
@@ -159,13 +159,21 @@ Beyond metrics, your database emits important lifecycle and state-change events.
 
 ![This image shows the result of performing the above step.](./images/4_7.png " ")
 
+Select `AWS services`, `Oracle Database@AWS` and `All Events` in the drop downs. Click on `Edit pattern`.
+
 ![This image shows the result of performing the above step.](./images/4_8.png " ")
 
-4. Configure **AWS CloudWatch Logs** as the target for the rule.
+Enter a custom event pattern in JSON format with the same event bus and the autonomous database service prefix (`com.oraclecloud.databaseservice.autonomous`)
+
+![This image shows the result of performing the above step.](./images/4_5.png " ")
+
+4. Configure **AWS CloudWatch Logs** as the target for the rule (here we create a new log group but you can also choose an existing one if available).
 
 ![This image shows the result of performing the above step.](./images/4_10.png " ")
 
 ![This image shows the result of performing the above step.](./images/4_11.png " ")
+
+The final screen before rule creation should look like this:
 
 ![This image shows the result of performing the above step.](./images/4_12.png " ")
 
